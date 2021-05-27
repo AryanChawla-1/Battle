@@ -20,21 +20,31 @@ while battle:
   elif index == 1:
     jutsu.allType()
     magicChoice = int(input('choose type')) - 1
-    jutsu.techniqueOnType(magicChoice)
+    if magicChoice < 5:
+      jutsu.techniqueOnType(magicChoice)
+    else:
+      print('a number between 1 and 5')
+      continue 
     jutsua = int(input('choose jutsu')) - 1
-    magicD = jutsu.genDmg(magicChoice, jutsua)
-    spells = jutsu.jutsuN(magicChoice, jutsua)
-    cost = jutsu.justuC(magicChoice, jutsua)
+    if jutsua <= 2:
+      magicD = jutsu.genDmg(magicChoice, jutsua)
+      spells = jutsu.jutsuN(magicChoice, jutsua)
+      cost = jutsu.justuC(magicChoice, jutsua)
 
-    currentMP = jutsu.getChakra()
+      currentMP = jutsu.getChakra()
 
-    if int(cost) > int(currentMP) :
-      print(brcolors.fail + 'you dont have enough mp' + brcolors.endc)
-      continue
-    jutsu.reduceC(int(cost))
-    enemy.takeDmg(magicD)
-    print('your attcked', magicD, 'enemy hp is', enemy.getHp())  
-
+      if int(cost) > int(currentMP) :
+        print(brcolors.fail + 'you dont have enough mp' + brcolors.endc)
+        continue
+      jutsu.reduceC(int(cost))
+      enemy.takeDmg(magicD)
+      print('your attcked', magicD, 'enemy hp is', enemy.getHp())
+    else:
+      print('choose a number between 1 and 2')
+      continue 
+  else:
+    print('choose a number between 1 and 2')
+    continue 
   enemyC = 1
   enemyD = enemy.genDmg()
   player.takeDmg(enemyD)

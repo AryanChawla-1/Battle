@@ -87,8 +87,7 @@ class jutsus():
       print(str(ligthining))
     elif i == 4:
       print(str(earth))
-    else:
-      print('bruh')
+
 
   def genDmg(self, nature, i):
     if nature == 0:
@@ -113,8 +112,6 @@ class jutsus():
       atkh = int(water[i,2]) + 10
       return random.randrange(atkl, atkh)
     
-    else:
-      print('bruh no chakra type like that i have seen and i have been alive for wat 200000 yeara literal BRUH moment!!')
   def justuC(self, nature, i):
     if nature == 0:
       return fire[i,2]
@@ -126,8 +123,6 @@ class jutsus():
       return ligthining[i,2]
     elif nature == 4:
       return earth[i,2]
-    else:
-      print('bruh')
     
   def reduceC(self,cost):
     self.chakra = self.chakra - cost
